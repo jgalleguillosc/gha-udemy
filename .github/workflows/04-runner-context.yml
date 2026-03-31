@@ -1,0 +1,19 @@
+name: 04 Runner Context
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - master
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  runner-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Información de runner
+        run: |
+          echo "Sitema operativo: ${{ runner.os }}"
+          echo "Arquitectura: ${{ runner.arch }}"
+
