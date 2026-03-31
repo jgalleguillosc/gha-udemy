@@ -17,5 +17,9 @@ jobs:
     environment: GHA_UDEMY
     steps:
       - name: Mensaje script a variable de entorno
-        run: echo "Hello ${{ vars.MY_NAME }}, se ha creado una nueva issue o se realizo push"
+        run: |
+          echo "Hello ${{ vars.MY_NAME }}, se ha creado una nueva issue o se realizo push"
+          echo "Número: #${{ github.event.issue.number }}"
+          echo "Título: ${{ github.event.issue.title }}"
+          echo "Autor: ${{ github.event.issue.user.login }}"
 
