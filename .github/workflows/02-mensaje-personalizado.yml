@@ -10,6 +10,6 @@ jobs:
   mensaje-personalizado:
     runs-on: ubuntu-latest
     steps:
-      - name: Mensaje script
-        run: echo "Hello, $MY_NAME!"
+      - name: Mensaje script a variable de entorno
+        run: echo "Hello, ${{ vars.MY_NAME }}!"
 
