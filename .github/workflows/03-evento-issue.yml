@@ -1,0 +1,21 @@
+name: 03 Evento Issue
+
+on:
+  workflow_dispatch:
+  issues:
+    types:
+      - opened
+  push:
+    branches: 
+      - master
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  evento-issue:
+    runs-on: ubuntu-latest
+    environment: GHA_UDEMY
+    steps:
+      - name: Mensaje script a variable de entorno
+        run: echo "Hello ${{ vars.MY_NAME }}, se ha creado una nueva issue o se realizo push"
+
