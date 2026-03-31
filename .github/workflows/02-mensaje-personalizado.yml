@@ -1,0 +1,15 @@
+name: 02 Mensaje Personalizado
+
+on:
+  push:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  mensaje-personalizado:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mensaje script
+        run: echo "Hello, $MY_NAME!"
+
