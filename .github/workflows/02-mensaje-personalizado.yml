@@ -9,6 +9,7 @@ on:
 jobs:
   mensaje-personalizado:
     runs-on: ubuntu-latest
+    environment: GHA_UDEMY
     steps:
       - name: Mensaje script a variable de entorno
         run: echo "Hello, ${{ vars.MY_NAME }}!"
