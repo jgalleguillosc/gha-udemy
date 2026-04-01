@@ -14,16 +14,16 @@ jobs:
     environment: GHA_UDEMY
     steps:
       - name: Esta es una persona natural
-        if: ${{ vars.TYPE_PERSON }} == 'NATURAL'
+        if: vars.TYPE_PERSON == 'NATURAL'
         run: |
           echo "Tipo de persona: ${{ vars.TYPE_PERSON }}"
-          echo "Pass: ${{ secret.MY_PASS }}"
+          echo "Pass: ${{ secrets.MY_PASS }}"
       
       - name: Esta es una persona juridica
-        if: ${{ vars.TYPE_PERSON }} != 'NATURAL'
+        if: vars.TYPE_PERSON != 'NATURAL'
         run: |
           echo "Tipo de persona: ${{ vars.TYPE_PERSON }}"
-          echo "Pass: ${{ secret.MY_PASS }}"
+          echo "Pass: ${{ secrets.MY_PASS }}"
         
       
       
