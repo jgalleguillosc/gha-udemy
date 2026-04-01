@@ -22,6 +22,15 @@ jobs:
       - run: npm test
       - name: Forzar fallo
         run: exit 1
+      - name: Si el paso enterior esta ok
+        if: ${{ success() }}
+        run: echo "Paso anterior correcto"
+      - name: Si el paso entarior falla
+        if: ${{ failure() }}
+        run: echo "El paso anterior fallo"
+      - name: Se ejecuta siempre (falle o no el paso anterior)
+        if: ${{ always() }}
+        run: Paso se ejecuta siempre
       
 
   deploy:
