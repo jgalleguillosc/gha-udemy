@@ -14,11 +14,11 @@ jobs:
     steps:
       - name: Variable en produccion
         run: |
-          echo "Tipo de persona: ${{ vars.PROD_MY_SECRET }}"
+          echo "Tienda: ${{ vars.NAME_TEMP }}"
       
       - name: Secreto en produccion
         run: |
-          echo "Pass: ${{ secrets.PROD_MY_SECRET }}"
+          echo "Pass: ${{ secrets.PASS_TEMP }}"
       
 
   deploy:
