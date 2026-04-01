@@ -1,0 +1,29 @@
+name: 08 Branch Deploy protected
+
+on:
+  push:
+    branches:
+      - master
+      - release/0.0.1
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: GHA_PROD
+    steps:
+      - name: Variable en produccion
+        run: |
+          echo "Tipo de persona: ${{ vars.PROD_MY_SECRET }}"
+      
+      - name: Secreto en produccion
+        run: |
+          echo "Pass: ${{ secrets.PROD_MY_SECRET }}"
+      
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps: 
+      - name: despliegue
+        run: echo "Desplegando en AWS..." 
