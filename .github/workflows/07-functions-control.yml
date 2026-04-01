@@ -11,7 +11,7 @@ jobs:
       matrix:
         version: [18, 20]
     runs-on: ubuntu-latest
-    # continue-on-error: true
+    continue-on-error: true # Si falla un job continua de todas maneras al proximo
     steps:
       - uses: actions/checkout@v4
       - name: Setup node environment
@@ -30,7 +30,7 @@ jobs:
         run: echo "El paso anterior fallo"
       - name: Se ejecuta siempre (falle o no el paso anterior)
         if: ${{ always() }}
-        run: Paso se ejecuta siempre
+        run: echo "Paso se ejecuta siempre"
       
 
   deploy:
