@@ -1,0 +1,30 @@
+name: 05 Conditional Step
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - master
+    paths-ignore:
+      - '*.md'
+
+jobs:
+  conditional-step:
+    runs-on: ubuntu-latest
+    environment: GHA_UDEMY
+    steps:
+      - name: Esta es una persona natural
+        if: ${{ vars.TYPE_PERSON }} == 'NATURAL'
+        run: |
+          echo "Tipo de persona: ${{ vars.TYPE_PERSON }}"
+          echo "Pass: ${{ secret.MY_PASS }}"
+      
+      - name: Esta es una persona juridica
+        if: ${{ vars.TYPE_PERSON }} != 'NATURAL'
+        run: |
+          echo "Tipo de persona: ${{ vars.TYPE_PERSON }}"
+          echo "Pass: ${{ secret.MY_PASS }}"
+        
+      
+      
+
