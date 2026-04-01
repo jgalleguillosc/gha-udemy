@@ -32,8 +32,8 @@ jobs:
     needs: tirada-dados
     steps:
       - name: Resumen dado1
-        run: echo "## Dado 1: ${{ needs.tirada-dados.outputs.dado1 }}" >> "$GITHUB_STEP_SUMMARY"
+        run: echo "## Dado 1: ${{ needs['tirada-dados'].outputs.dado1 }}" >> "$GITHUB_STEP_SUMMARY"
       
       - name: Resumen dado2
-        if: needs.tirada-dados.outputs.dado2 != ''
-        run: echo "## Dado 2: ${{ needs.tirada-dados.outputs.dado2 }}" >> "$GITHUB_STEP_SUMMARY"
+        if: needs['tirada-dados'].outputs.dado2 != ''
+        run: echo "## Dado 2: ${{ needs['tirada-dados'].outputs.dado2 }}" >> "$GITHUB_STEP_SUMMARY"
